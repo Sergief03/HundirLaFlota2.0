@@ -48,7 +48,6 @@ public class Barco {
             }
         }
 
-
         return barco;
     }
 
@@ -98,5 +97,6 @@ public class Barco {
         }else {
             return -1;
         }
+
     }
 }
