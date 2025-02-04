@@ -8,6 +8,7 @@ public class Tablero {
         if(f>6&&c>6){
             this.totalFilas=f;
             this.totalColumnas = c;
+            this.flota = new Flota();
         }else{
             throw new IllegalArgumentException();
         }
@@ -16,6 +17,7 @@ public class Tablero {
         if(n>6){
             this.totalFilas=n;
             this.totalColumnas = n;
+            this.flota = new Flota();
         }else{
             throw new IllegalArgumentException();
         }
@@ -23,6 +25,7 @@ public class Tablero {
     public Tablero(){
         this.totalFilas=7;
         this.totalColumnas=7;
+        this.flota=new Flota();
     }
     public int getTotalFilas(){
         return this.totalFilas;
@@ -34,13 +37,26 @@ public class Tablero {
         return this.flota;
     }
     public char getEstado(int f, int c){
-        this.flota = getFlota();
-        if(this.flota.hayBarco(f,c)){
-
+        if(this.flota.getBarco(f,c).estaHundido()){
+            return 'x';
+        }else if(this.flota.getBarco(f,c).getEstado(f,c)==1){
+            return '*';
+        }else if(this.flota.getBarco(f,c).getEstado(f,c)==0){
+            return 'B';
+        }else{
+            return '.';
         }
-        throw new UnsupportedOperationException("Sin programar");
     }
     public void dibujar(boolean mostrarBarcos){
-        throw new UnsupportedOperationException("Sin programar");
+        for(int i = 0;i<this.totalFilas;i++){
+            for(int j = 0;j<this.totalColumnas;j++){
+                if(this.flota.getBarco(i,j).hayBarcp(i,j)){
+                    System.out.print(getEstado(i, j));
+                }else{
+                    System.out.print(".");
+                }
+            }
+            System.out.println("");
+        }
     }
 }
