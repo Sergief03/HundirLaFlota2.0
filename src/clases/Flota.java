@@ -23,22 +23,15 @@ import java.util.List;
         public int getNumeroBarcosActivos() {
             int contador = 0;
             for (Barco b : barquitos) {
-                if (b.estaHundido() == false) {
+                if (b.hayBarcp(b.getFila(),b.getColumna()) && !b.estaHundido()) {
                     contador++;
                 }
             }
             return contador;
         }
 
-        public int getNumeroBarcosHumdidos() {
-            int contador = 0;
-            for (Barco b : barquitos) {
-                if (b.estaHundido() == true) {
-                    contador++;
-                }
-            }
-            return contador;
-
+        public int getNumeroBarcosHundidos() {
+            return barquitos.size() - getNumeroBarcosActivos();
         }
 
         public boolean todosBarcosHundidos() {
@@ -67,13 +60,14 @@ import java.util.List;
 
         public int recibirDisparo(int f, int c) {
             Barco b = getBarco(f, c);
-            if(b != null){
-                return 1;
+            if (b == null){
+                return -1;
             }
-            if(b != null && b.estaHundido() == true){
+            b.recibirDisparo(f, c);
+            if (b.estaHundido()){
                 return 2;
             }
-            return -1;
+            return 1;
         }
     }
 
