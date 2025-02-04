@@ -37,20 +37,24 @@ public class Tablero {
         return this.flota;
     }
     public char getEstado(int f, int c){
-        if(this.flota.getBarco(f,c).estaHundido()){
-            return 'x';
-        }else if(this.flota.getBarco(f,c).getEstado(f,c)==1){
-            return '*';
-        }else if(this.flota.getBarco(f,c).getEstado(f,c)==0){
-            return 'B';
-        }else{
+        if(this.flota.getBarco(f,c)==null){
             return '.';
+        }else {
+            if (this.flota.getBarco(f, c).getEstado(f, c) == 2) {
+                return 'x';
+            } else if (this.flota.getBarco(f, c).getEstado(f, c) == 1) {
+                return '*';
+            } else if (this.flota.getBarco(f, c).getEstado(f, c) == 0) {
+                return 'B';
+            }else{
+                return '0';
+            }
         }
     }
     public void dibujar(boolean mostrarBarcos){
         for(int i = 0;i<this.totalFilas;i++){
             for(int j = 0;j<this.totalColumnas;j++){
-                if(this.flota.getBarco(i,j).hayBarcp(i,j)){
+                if(mostrarBarcos){
                     System.out.print(getEstado(i, j));
                 }else{
                     System.out.print(".");
