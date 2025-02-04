@@ -58,9 +58,9 @@ public class Barco {
     public int recibirDisparo(int f, int c){
         if (hayBarcp(f,c)){
             if (!vertical){
-                this.daño[(c-this.columna)]=true;
+                this.daño[(c-this.columna)-1]=true;
             }else {
-                this.daño[(f-this.fila)]=true;
+                this.daño[(f-this.fila)-1]=true;
             }
 
         }else {
