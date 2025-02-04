@@ -8,7 +8,7 @@ import java.util.List;
         private List<Barco> barquitos;
 
         //Métodos
-        public Flota(List<Barco> barquitos) {
+        public Flota() {
             this.barquitos = new ArrayList<>();
         }
 
