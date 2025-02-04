@@ -27,8 +27,8 @@ public class Barco {
     }
 
     public boolean estaHundido(){
-        boolean hundido=false;
-        for (Boolean e:daño){
+        boolean hundido=true;
+        for (Boolean e:this.daño){
             if (e==false){
                 hundido=false;
             }
@@ -38,12 +38,12 @@ public class Barco {
 
     public boolean hayBarcp(int f,int c){
         boolean barco=false;
-        if (vertical){
-            if (c==this.columna||(c>=this.columna&&c<=this.daño.length)){
+        if (!vertical){
+            if ((f==this.fila&&c==this.columna)||((c>=this.columna&&c<=this.daño.length))&&f==this.fila){
                 barco=true;
             }
         }else {
-            if (f==this.fila||(f>=this.fila&&c<=this.daño.length)){
+            if ((f==this.fila&&c==this.columna)||((f>=this.fila&&f<=this.daño.length))&&c==this.columna){
                 barco=true;
             }
         }
@@ -54,7 +54,7 @@ public class Barco {
 
     public int recibirDisparo(int f, int c){
         if (hayBarcp(f,c)){
-            if (vertical){
+            if (!vertical){
                 this.daño[(c-this.columna)]=true;
             }else {
                 this.daño[(f-this.fila)]=true;
@@ -73,7 +73,7 @@ public class Barco {
 
     public int getEstado(int f, int c){
         if (hayBarcp(f,c)){
-            if (vertical){
+            if (!vertical){
                 if (this.daño[(c-this.columna)]==true){
                     if (estaHundido()){
                         return 2;
