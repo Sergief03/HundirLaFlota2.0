@@ -26,6 +26,10 @@ public class Barco {
         return this.daño.length;
     }
 
+    public boolean esVertical(){
+        return this.vertical;
+    }
+
     public boolean estaHundido(){
         boolean hundido=true;
         for (Boolean e:this.daño){
