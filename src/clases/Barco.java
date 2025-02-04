@@ -43,11 +43,11 @@ public class Barco {
     public boolean hayBarcp(int f,int c){
         boolean barco=false;
         if (!vertical){
-            if ((f==this.fila&&c==this.columna)||((c>=this.columna&&c<=this.daño.length))&&f==this.fila){
+            if ((f==this.fila&&c==this.columna)||((c>=this.columna&&c-this.columna<=this.daño.length))&&f==this.fila){
                 barco=true;
             }
         }else {
-            if ((f==this.fila&&c==this.columna)||((f>=this.fila&&f<=this.daño.length))&&c==this.columna){
+            if ((f==this.fila&&c==this.columna)||((f>=this.fila&&f-this.fila<=this.daño.length))&&c==this.columna){
                 barco=true;
             }
         }
