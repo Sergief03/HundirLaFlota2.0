@@ -8,7 +8,7 @@ import java.util.List;
         private List<Barco> barquitos;
 
         //Métodos
-        public Flota(List<Barco> barquitos) {
+        public Flota() {
             this.barquitos = new ArrayList<>();
         }
 
@@ -54,15 +54,8 @@ import java.util.List;
             return false;
         }
 
-        public boolean hayBarco(int f, int c) {
-            for (Barco b : barquitos) {
-                int fila = b.getFila();
-                int columna = b.getColumna();
-                if (fila == f && columna == c) {
-                    return true;
-                }
-            }
-            return false;
+        public Barco getBarco(int f, int c) {
+            throw new UnsupportedOperationException("Sin programar");
         }
 
         public int recibirDisparo(int f, int c) {
