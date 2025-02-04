@@ -67,9 +67,13 @@ import java.util.List;
 
         public int recibirDisparo(int f, int c) {
             Barco b = getBarco(f, c);
-            if (b != null) {}
-
-            throw new UnsupportedOperationException("Sin programar");
+            if(b != null){
+                return 1;
+            }
+            if(b != null && b.estaHundido() == true){
+                return 2;
+            }
+            return -1;
         }
     }
 
