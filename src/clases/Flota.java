@@ -54,19 +54,26 @@ import java.util.List;
             return false;
         }
 
-        public boolean hayBarco(int f, int c) {
+        public Barco getBarco(int f, int c) {
+            int fila = 0;
+            int columna = 0;
             for (Barco b : barquitos) {
-                int fila = b.getFila();
-                int columna = b.getColumna();
-                if (fila == f && columna == c) {
-                    return true;
+                if (b.hayBarcp(f, c)) {
+                    return b;
                 }
             }
-            return false;
+            return null;
         }
 
         public int recibirDisparo(int f, int c) {
-            throw new UnsupportedOperationException("Sin programar");
+            Barco b = getBarco(f, c);
+            if(b != null){
+                return 1;
+            }
+            if(b != null && b.estaHundido() == true){
+                return 2;
+            }
+            return -1;
         }
     }
 
