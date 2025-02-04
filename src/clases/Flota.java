@@ -55,10 +55,19 @@ import java.util.List;
         }
 
         public Barco getBarco(int f, int c) {
-            throw new UnsupportedOperationException("Sin programar");
+            int fila = 0;
+            int columna = 0;
+            for (Barco b : barquitos) {
+                if (b.hayBarcp(f, c)) {
+                    return b;
+                }
+            }
+            return null;
         }
 
         public int recibirDisparo(int f, int c) {
+            Barco b = getBarco(f, c);
+
             throw new UnsupportedOperationException("Sin programar");
         }
     }
