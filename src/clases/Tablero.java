@@ -48,17 +48,6 @@ public class Tablero {
                 case 2 : return 'x';
                 default : return 0;
             }
-            /*
-            if (this.flota.getBarco(f, c).getEstado(f, c) == 2) {
-                return 'x';
-            } else if (this.flota.getBarco(f, c).getEstado(f, c) == 1) {
-                return '*';
-            } else if (this.flota.getBarco(f, c).getEstado(f, c) == 0) {
-                return 'B';
-            }else{
-                return '0';
-            }
-            */
         }
     }
     public void dibujar(boolean mostrarBarcos){
