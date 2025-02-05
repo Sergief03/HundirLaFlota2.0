@@ -51,7 +51,7 @@ import java.util.List;
             int fila = 0;
             int columna = 0;
             for (Barco b : barquitos) {
-                if (b.hayBarcp(f, c)) {
+                if (b.hayBarco(f, c)) {
                     return b;
                 }
             }
