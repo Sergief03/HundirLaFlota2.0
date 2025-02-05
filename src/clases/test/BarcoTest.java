@@ -14,8 +14,8 @@ public class BarcoTest {
         assertEquals(4, barco.getTamaño());
 
         assertEquals(false,barco.estaHundido());
-        assertEquals(false,barco.hayBarcp(0,1));
-        assertEquals(true,barco.hayBarcp(3,2));
+        assertEquals(false,barco.hayBarco(0,1));
+        assertEquals(true,barco.hayBarco(3,2));
         assertEquals(1,barco.recibirDisparo(1,2));
         assertEquals(-1,barco.recibirDisparo(4,5));
     }
@@ -44,8 +44,8 @@ public class BarcoTest {
 
         assertEquals(false,barco.esVertical());
         assertEquals(false, barco.estaHundido());
-        assertEquals(false,barco.hayBarcp(0,1));
-        assertEquals(true,barco.hayBarcp(2,3));
+        assertEquals(false,barco.hayBarco(0,1));
+        assertEquals(true,barco.hayBarco(2,3));
 
         assertEquals(1,barco.recibirDisparo(2,1));
         assertEquals(-1,barco.recibirDisparo(4,5));
