@@ -13,20 +13,19 @@ public class GeneradorFlotaTest {
     public void Test1(){
         Tablero tablero = new Tablero(7,7);
         GeneradorFlota generadorFlota = new GeneradorFlota(tablero);
-        Flota flota = new Flota();
-        for (int i=1;i<=10;i++){
-            generadorFlota.rellenarBarcos();
-        }
-        assertEquals(10,flota.getNumeroBarcosActivos());
-        assertEquals(0,flota.getNumeroBarcosHundidos());
-        assertEquals(false,flota.todosBarcosHundidos());
+
+        generadorFlota.rellenarBarcos();
+
+        assertEquals(10,tablero.getFlota().getNumeroBarcosActivos());
+        assertEquals(0,tablero.getFlota().getNumeroBarcosHundidos());
+        assertEquals(false,tablero.getFlota().todosBarcosHundidos());
         for (int i=0;i<tablero.getTotalFilas();i++){
-            for (int j=0;j<tablero.getTotalColumnas();i++){
-                flota.recibirDisparo(i,j);
+            for (int j=0;j<tablero.getTotalColumnas();j++){
+                tablero.getFlota().recibirDisparo(i,j);
             }
         }
-        assertEquals(0,flota.getNumeroBarcosActivos());
-        assertEquals(10,flota.getNumeroBarcosHundidos());
-        assertEquals(true,flota.todosBarcosHundidos());
+        assertEquals(0,tablero.getFlota().getNumeroBarcosActivos());
+        assertEquals(10,tablero.getFlota().getNumeroBarcosHundidos());
+        assertEquals(true,tablero.getFlota().todosBarcosHundidos());
     }
 }

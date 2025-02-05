@@ -13,7 +13,7 @@ import java.util.List;
         }
 
         public void añadirBarco(Barco b) {
-            barquitos.add(b);
+            this.barquitos.add(b);
         }
 
         public int getNumeroBarcos() {
@@ -22,7 +22,7 @@ import java.util.List;
 
         public int getNumeroBarcosActivos() {
             int activos = 0;
-            for (Barco b : barquitos) {
+            for (Barco b : this.barquitos) {
                 if (!b.estaHundido()) {
                     activos++;
                 }

@@ -15,12 +15,12 @@ public class GeneradorFlota {
 
     public void rellenarBarcos(){
         for (int i=1;i<=10;i++){
-            if (i<2){
-                crearBarco(4);
-            }else if(i<5){
-                crearBarco(3);
+            if (i<=2){
+                this.tablero.getFlota().añadirBarco(crearBarco(4));
+            }else if(i<=5){
+                this.tablero.getFlota().añadirBarco(crearBarco(3));
             }else {
-                crearBarco(2);
+                this.tablero.getFlota().añadirBarco(crearBarco(2));
             }
         }
 
@@ -39,23 +39,24 @@ public class GeneradorFlota {
 
         while (continuar&&contador<=1000){
             vertical=random.nextBoolean();
-            fila=random.nextInt(0);
-            columna=random.nextInt(0);
-            if (fila<filasTablero&&columna<columnasTablero){
-                if (vertical){
-                    for (int i=fila;i<fila+tam&&continuar;i++){
-                        if (this.tablero.getFlota().getBarco(i,columna)==null){
-                            continuar=false;
-                        }
+            fila=random.nextInt(filasTablero-1);
+            columna=random.nextInt(columnasTablero-1);
+
+            if (vertical){
+                for (int i=fila;i<=fila+tam&&continuar;i++){
+                    if (this.tablero.getFlota().getBarco(i,columna)==null){
+                        continuar=false;
                     }
-                }else {
-                    for (int i=columna;i<columna+tam&&continuar;i++){
-                        if (this.tablero.getFlota().getBarco(fila,i)==null){
-                            continuar=false;
-                        }
+                }
+            }else {
+                for (int i=columna;i<=columna+tam&&continuar;i++){
+                    if (this.tablero.getFlota().getBarco(fila,i)==null){
+                        continuar=false;
                     }
                 }
             }
+
+
 
             contador++;
         }
